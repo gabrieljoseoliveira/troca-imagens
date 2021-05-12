@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Imagens</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+  <section class="container">
+
+    <h1>Imagens</h1>
+
+    <h4>Mudar imagem com botão</h4>
+
+    <img id="slide" src="assets/img/1.png" style="height: 250px; width: 250px;">
+
+    <button onclick="mudarImagem01()">Trocar Imagem</button>
+
+    <h4>Mostrar imagens com slide</h4>
+
+    <ul class="slider">
+
+      <li>
+
+        <input type="radio" id="slide1" name="slide" checked>
+        <label for="slide1"></label>
+        <img src="assets/img/1.png" style="height: 250px; width: 250px;"/>
+
+      </li>
+
+      <li>
+
+        <input type="radio" id="slide2" name="slide">
+        <label for="slide2"></label>
+        <img src="assets/img/2.png" style="height: 250px; width: 250px;"/>
+
+      </li>
+
+      <li>
+
+        <input type="radio" id="slide3" name="slide">
+        <label for="slide3"></label>
+        <img src="assets/img/3.png" style="height: 250px; width: 250px;"/>
+
+      </li>
+
+    </ul>
+
+    <h4>Looping automático de Imagens</h4>
+
+    <img id="loop" src="assets/img/1.png" style="height: 250px; width: 250px;">
+
+    <h4>Mudar imagem ao passar o mouse encima</h4>
+
+    <img id="imgMouse" onmouseover="mudarImagem02()" src="assets/img/1.png" style="height: 250px; width: 250px;">
+
+
+  </section>
+
+  <script>
+
+    const imagens = [];
+
+    let i = 1;
+    let o = 0;
+    let p = 1;
+
+    imagens[0] = "assets/img/1.png"
+    imagens[1] = "assets/img/2.png"
+    imagens[2] = "assets/img/3.png"
+
+    function mudarImagem01(){
+
+      document.getElementById("slide").src = imagens[i];
+
+      if (i < imagens.length - 1){
+
+        i++;
+
+      } else {
+
+        i = 0;
+
+      };
+
+    };
+
+    function mudarImagem02(){
+
+      document.getElementById("imgMouse").src = imagens[p];
+
+      if (p < imagens.length - 1){
+
+        p++;
+
+      } else {
+
+        p = 0;
+
+      };
+
+    };
+
+    function looparImagem(){
+
+      loop = document.getElementById("loop");
+      loop.src = imagens[o];
+
+      if (o < imagens.length - 1){
+
+        o++;
+
+      } else {
+
+        o = 0;
+
+      };
+
+      setTimeout("looparImagem()", 1469)
+
+    };
+
+    window.onload = looparImagem();
+
+  </script>
+
+</body>
+
+</html>
